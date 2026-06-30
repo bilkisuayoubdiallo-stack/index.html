@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RANDOM ASS INTERNET UNIVERSE</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Poppins, sans-serif;
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+
+/* deep space background */
+background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564');
+background-color:#0e1b18;
+position:relative;
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* translucent dark overlay so UI stays readable */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(180deg, rgba(9,22,19,0.42), rgba(10,20,28,0.58));
+z-index:-1;
+}
+
+/* subtle moving stars above the image */
+body::after{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.15;
+animation:starsMove 120s linear infinite;
+z-index:-2;
+}
+
+/* animated stars */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background-image:radial-gradient(white 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.15;
+animation:starsMove 120s linear infinite;
+z-index:-2;
+}
+
+@keyframes starsMove{
+from{transform:translate3d(0,0,0)}
+to{transform:translate3d(-120px,-200px,0)}
+}
+
+@keyframes auroraShift{
+0%{transform:translateX(0) translateY(0) scale(1);opacity:.22}
+50%{transform:translateX(40px) translateY(-20px) scale(1.08);opacity:.3}
+100%{transform:translateX(-20px) translateY(25px) scale(1.02);opacity:.2}
+}
+
+@keyframes dustDrift{
+from{transform:translate3d(0,0,0)}
+to{transform:translate3d(-80px,60px,0)}
+}
+to{transform:translateY(-200px)}
+wws
+/* glow blobs */
+body::after{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#ffffff33,transparent);
+filter:blur(80px);
+bottom:-200px;
+right:-200px;
+z-index:-1;
+}
+
+body .aurora,
+body .dust,
+body .parallax-layer{
+position:fixed;
+inset:0;
+pointer-events:none;
+}
+
+body .parallax-layer{
+z-index:-3;
+background:radial-gradient(circle at 20% 25%, rgba(142,255,214,0.08), transparent 28%),
+radial-gradient(circle at 78% 18%, rgba(120,236,190,0.06), transparent 22%),
+radial-gradient(circle at 72% 78%, rgba(185,255,233,0.07), transparent 26%);
+transform:translate3d(var(--mx,0px), var(--my,0px), 0);
+transition:transform .25s ease-out;
+}
+
+body .aurora{
+z-index:-2;
+background:
+radial-gradient(ellipse at 18% 30%, rgba(110,255,196,0.22), transparent 34%),
+radial-gradient(ellipse at 70% 22%, rgba(136,255,220,0.16), transparent 28%),
+radial-gradient(ellipse at 54% 72%, rgba(98,214,173,0.18), transparent 32%);
+filter:blur(28px);
+animation:auroraShift 16s ease-in-out infinite alternate;
+}
+
+body .dust{
+z-index:-1;
+background-image:
+radial-gradient(circle, rgba(215,255,240,0.35) 1px, transparent 1.8px),
+radial-gradient(circle, rgba(170,255,220,0.22) 1px, transparent 2px);
+background-size:120px 120px, 180px 180px;
+background-position:0 0, 40px 70px;
+opacity:.26;
+animation:dustDrift 34s linear infinite;
+}
+
+header{
+padding:40px 20px;
+text-align:center;
+}
+
+h1{
+font-family:Orbitron;
+font-size:42px;
+letter-spacing:3px;
+}
+
+.subtitle{
+opacity:.85;
+margin-top:10px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin-top:25px;
+}
+
+nav button{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+border:none;
+padding:12px 20px;
+border-radius:16px;
+background:rgba(255,255,255,0.18);
+color:white;
+cursor:pointer;
+font-weight:600;
+backdrop-filter:blur(10px);
+-webkit-tap-highlight-color: transparent;
+touch-action: manipulation;
+user-select:none;
+transition:transform .12s ease, box-shadow .12s ease, background .12s ease, filter .12s ease;
+box-shadow:0 4px 10px rgba(0,0,0,0.25);
+will-change:transform, box-shadow;
+}
+
+nav button:hover{
+background:rgba(255,255,255,0.35);
+transform:translateY(-2px) scale(1.02);
+box-shadow:0 0 12px rgba(204,255,237,0.68),0 0 25px rgba(116,226,184,0.52),0 8px 20px rgba(0,0,0,0.22);
+filter:brightness(1.04);
+}
+
+nav button:active{
+transform:translateY(1px) scale(0.97);
+box-shadow:0 0 18px rgba(222,255,244,0.95),0 0 35px rgba(114,231,188,0.82),0 0 55px rgba(86,190,155,0.5);
+filter:brightness(1.08);
+}
+
+nav button:hover{
+background:rgba(255,255,255,0.35);
+transform:translateY(-2px);
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.panel{
+background:rgba(255,255,255,0.14);
+backdrop-filter:blur(18px);
+border-radius:28px;
+padding:35px;
+margin-bottom:35px;
+box-shadow:10px 10px 40px rgba(0,0,0,.35),-10px -10px 30px rgba(255,255,255,.06);
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:25px;
+align-items:center;
+}
+
+.hero img{
+width:100%;
+border-radius:22px;
+}
+
+h2{
+font-family:Orbitron;
+margin-bottom:10px;
+letter-spacing:1px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
+margin-top:20px;
+}
+
+.card{
+padding:22px;
+border-radius:18px;
+background:rgba(255,255,255,0.16);
+text-align:center;
+transition:.25s;
+box-shadow:5px 5px 18px rgba(0,0,0,.25);
+}
+
+.card:hover{
+transform:translateY(-6px) scale(1.03);
+background:rgba(255,255,255,0.28);
+}
+
+.card a{
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.generator{
+text-align:center;
+margin-top:20px;
+}
+
+.generator button{
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:12px 22px;
+border-radius:16px;
+border:none;
+background:#ffffff22;
+color:white;
+margin:6px;
+font-weight:600;
+cursor:pointer;
+-webkit-tap-highlight-color: transparent;
+touch-action: manipulation;
+user-select:none;
+transition:transform .12s ease, box-shadow .12s ease, background .12s ease, filter .12s ease;
+box-shadow:0 4px 10px rgba(0,0,0,0.25);
+will-change:transform, box-shadow;
+}
+
+.generator button:hover{
+background:#ffffff40;
+transform:translateY(-2px) scale(1.02);
+box-shadow:0 0 14px rgba(215,255,241,0.78),0 0 28px rgba(102,219,175,0.62),0 8px 20px rgba(0,0,0,0.22);
+filter:brightness(1.04);
+}
+
+.generator button:active{
+transform:translateY(1px) scale(0.97);
+box-shadow:0 0 20px rgba(235,255,247,1),0 0 35px rgba(108,229,184,0.95),0 0 56px rgba(74,175,141,0.5);
+filter:brightness(1.08);
+}
+
+.generator button:hover{
+background:#ffffff40;
+}
+
+.output{
+margin-top:15px;
+font-size:18px;
+min-height:24px;
+}
+
+.gallery-sections{
+display:grid;
+gap:28px;
+margin-top:20px;
+}
+
+.gallery-block{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:24px;
+padding:22px;
+}
+
+.gallery-block h3{
+font-family:Orbitron;
+font-size:1rem;
+letter-spacing:1px;
+margin-bottom:14px;
+}
+
+.gallery-subtext{
+opacity:.8;
+font-size:.95rem;
+margin-bottom:16px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:16px;
+}
+
+.gallery-card{
+overflow:hidden;
+border-radius:18px;
+background:rgba(255,255,255,0.12);
+box-shadow:5px 5px 18px rgba(0,0,0,.22);
+transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.gallery-card:hover{
+transform:translateY(-6px) scale(1.02);
+background:rgba(255,255,255,0.18);
+box-shadow:0 12px 30px rgba(0,0,0,.28), 0 0 18px rgba(168,255,220,.18);
+}
+
+.gallery-card img{
+width:100%;
+height:170px;
+object-fit:cover;
+display:block;
+}
+
+.gallery-card-body{
+padding:14px;
+}
+
+.gallery-card-title{
+font-weight:600;
+margin-bottom:6px;
+}
+
+.gallery-card-text{
+font-size:.92rem;
+line-height:1.45;
+opacity:.88;
+}
+
+.gallery-tag-row{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:10px;
+}
+
+.gallery-tag{
+font-size:.72rem;
+padding:5px 9px;
+border-radius:999px;
+background:rgba(255,255,255,0.14);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.gallery-link{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-top:12px;
+padding:9px 12px;
+border-radius:12px;
+background:rgba(255,255,255,0.14);
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:all .18s ease;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.gallery-link:hover{
+background:rgba(255,255,255,0.24);
+box-shadow:0 0 14px rgba(215,255,241,0.55),0 0 24px rgba(102,219,175,0.42);
+transform:translateY(-2px);
+}
+
+.gallery-link:active{
+transform:translateY(1px) scale(0.98);
+}
+
+@media(max-width:700px){
+.gallery-card img{height:190px}
+}
+
+/* floating astronaut animation */
+.astronaut{
+position:absolute;
+right:40px;
+top:120px;
+width:90px;
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+}
+
+/* pixel helper */
+.pixelPet{
+position:fixed;
+bottom:20px;
+right:20px;
+background:rgba(255,255,255,0.18);
+padding:14px 18px;
+border-radius:18px;
+font-size:14px;
+max-width:200px;
+backdrop-filter:blur(12px);
+}
+
+footer{
+text-align:center;
+padding:40px 20px;
+opacity:.7;
+}
+
+nav button:focus-visible,
+.generator button:focus-visible{
+outline:2px solid rgba(220,255,245,0.95);
+outline-offset:3px;
+box-shadow:0 0 0 4px rgba(120,230,190,0.25),0 0 18px rgba(215,255,241,0.72);
+}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}
+.astronaut{display:none}
+}
+
+</style>
+</head>
+
+<body>
+<div class="parallax-layer" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="dust" aria-hidden="true"></div>
+
+<header>
+<h1>RANDOM ASS INTERNET UNIVERSE</h1>
+<p class="subtitle">Explore games, movies, science and curiosity</p>
+
+<nav>
+<button onclick="scrollToSection('games')">Games</button>
+<button onclick="scrollToSection('movies')">Movies</button>
+<button onclick="scrollToSection('science')">Science</button>
+<button onclick="scrollToSection('curiosity')">Curiosity</button>
+<button onclick="scrollToSection('gallery')">Galaxy Gallery</button>
+</nav>
+</header>
+
+<div class="container">
+
+<div class="panel hero">
+<div>
+<h2>Explore The Digital Galaxy</h2>
+<p>Jump between games, knowledge portals, movies and curiosity rabbit holes. Built as a playful internet universe designed to stay engaging and fun.</p>
+</div>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Jupiter_by_Cassini-Huygens.jpg" alt="Jupiter planet photograph">
+</div>
+
+<div id="games" class="panel">
+<h2>Game Portals</h2>
+<p class="gallery-subtext">A deeper arcade map with weird experiments, puzzle worlds, browser classics, creative sandboxes, and fast dopamine-click sites.</p>
+<div class="gallery-sections">
+<div class="gallery-block">
+<h3>Weird, Playful, and Experimental</h3>
+<p class="gallery-subtext">Fast, low-friction sites for instant curiosity and playful chaos.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80" alt="Abstract gaming lights for experimental web games"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Interactive</span><span class="gallery-tag">Surreal</span></div><div class="gallery-card-title">Neal.fun</div><div class="gallery-card-text">A playground of strange interactive experiments, visual toys, and rabbit-hole internet experiences.</div><a class="gallery-link" href="https://neal.fun" target="_blank">Open Portal</a></a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="Digital drawing scene for AI drawing game"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Creative</span><span class="gallery-tag">Quick Play</span></div><div class="gallery-card-title">Quick, Draw!</div><div class="gallery-card-text">A fast and silly AI drawing game that rewards short attention bursts and instant feedback.</div><a class="gallery-link" href="https://quickdraw.withgoogle.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80" alt="Browser experiment concept art"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Browser Toy</span><span class="gallery-tag">Random</span></div><div class="gallery-card-title">Pointer Pointer</div><div class="gallery-card-text">A tiny absurdist site that turns your cursor into the whole joke. Perfect for instant novelty.</div><a class="gallery-link" href="https://pointerpointer.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Retro web game aesthetic"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Retro</span><span class="gallery-tag">Chaos</span></div><div class="gallery-card-title">The Useless Web</div><div class="gallery-card-text">A random launcher into odd corners of the internet when she wants novelty with zero commitment.</div><a class="gallery-link" href="https://theuselessweb.com" target="_blank">Open Portal</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Puzzle, Crafting, and Strategy Loops</h3>
+<p class="gallery-subtext">Games with progression, combinations, and light strategy.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80" alt="Puzzle and crafting game style image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Crafting</span><span class="gallery-tag">Browser Game</span></div><div class="gallery-card-title">Little Alchemy 2</div><div class="gallery-card-text">Mix elements, discover absurd combinations, and keep chasing the next unlock.</div><a class="gallery-link" href="https://littlealchemy2.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80" alt="Idle game image with glowing keyboard"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Idle</span><span class="gallery-tag">Classic</span></div><div class="gallery-card-title">Cookie Clicker</div><div class="gallery-card-text">The king of browser idle loops, perfect for satisfying upgrades and escalating nonsense.</div><a class="gallery-link" href="https://orteil.dashnet.org/cookieclicker" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=900&q=80" alt="Sudoku puzzle board style image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Logic</span><span class="gallery-tag">Puzzles</span></div><div class="gallery-card-title">Web Sudoku</div><div class="gallery-card-text">Simple, focused puzzle solving for a more grounded and satisfying brain mode.</div><a class="gallery-link" href="https://www.websudoku.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=900&q=80" alt="Chess board with ambient lighting"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Strategy</span><span class="gallery-tag">Competitive</span></div><div class="gallery-card-title">Lichess</div><div class="gallery-card-text">Fast puzzles, AI matches, and full chess tools when she wants more structured challenge.</div><a class="gallery-link" href="https://lichess.org" target="_blank">Open Portal</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Creative and Cozy Worlds</h3>
+<p class="gallery-subtext">Gentler spaces for imagination, art, and visually soothing play.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=900&q=80" alt="Art creation digital scene"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Art</span><span class="gallery-tag">Creative</span></div><div class="gallery-card-title">Kleki</div><div class="gallery-card-text">A lightweight painting site for doodling, color play, and spontaneous visual creativity.</div><a class="gallery-link" href="https://kleki.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=80" alt="Pixel art themed image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Pixel Art</span><span class="gallery-tag">Cute</span></div><div class="gallery-card-title">Piskel</div><div class="gallery-card-text">An easy pixel-art editor that fits the site vibe and lets her make tiny retro creations.</div><a class="gallery-link" href="https://www.piskelapp.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Music creative interface"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Music</span><span class="gallery-tag">Interactive</span></div><div class="gallery-card-title">Chrome Music Lab</div><div class="gallery-card-text">Playable music experiments that feel more like toys than lessons.</div><a class="gallery-link" href="https://musiclab.chromeexperiments.com" target="_blank">Open Portal</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=900&q=80" alt="Peaceful game environment"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Cozy</span><span class="gallery-tag">Puzzle Art</span></div><div class="gallery-card-title">Seterra Geography</div><div class="gallery-card-text">Clean geography challenges that feel playful, not school-like, with fast retry loops.</div><a class="gallery-link" href="https://www.seterra.com" target="_blank">Open Portal</a></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="movies" class="panel">
+<h2>Movie Universe</h2>
+<p class="gallery-subtext">A broad movie-and-anime discovery hub covering all genres, cinema history, recent releases, and upcoming titles worth watching.</p>
+<div class="gallery-sections">
+<div class="gallery-block">
+<h3>Instant Pick Buttons</h3>
+<div class="generator">
+<button onclick="randomMovie()">Random Movie</button>
+<button onclick="randomAnime()">Random Anime</button>
+<button onclick="randomClassic()">Classic Cinema</button>
+<button onclick="randomRecent()">Recent Release</button>
+<button onclick="randomUpcoming()">Upcoming Pick</button>
+<div class="output" id="movieResult"></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Genre Jumpstart</h3>
+<p class="gallery-subtext">Quick entry points for different moods and genres, without locking the section into only sci-fi.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Film_reel_icon.svg" alt="Classic cinema reel icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Drama</span><span class="gallery-tag">Classic</span></div><div class="gallery-card-title">Classic & Essential Films</div><div class="gallery-card-text">Start with canon-building films from the early decades of cinema through the modern era.</div><a class="gallery-link" href="https://letterboxd.com/tspdtfanaccount/list/the-1000-greatest-films-21st-edition-2026/" target="_blank">Browse Classics</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Clapperboard.svg" alt="Movie clapperboard icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">All Genres</span><span class="gallery-tag">Reference</span></div><div class="gallery-card-title">IMDb Movie Search</div><div class="gallery-card-text">Jump across genres, decades, countries, and popularity filters using IMDb's title search.</div><a class="gallery-link" href="https://www.imdb.com/search/title/?title_type=feature" target="_blank">Browse Movies</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Letterboxd_2018_icon_%28alternative%29.png" alt="Letterboxd icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Lists</span><span class="gallery-tag">Discovery</span></div><div class="gallery-card-title">Letterboxd Discovery</div><div class="gallery-card-text">Perfect for mood-based lists, decade deep dives, niche genres, and community-curated marathons.</div><a class="gallery-link" href="https://letterboxd.com/films/" target="_blank">Browse Lists</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Anime_icon.svg" alt="Anime icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Anime</span><span class="gallery-tag">Broad Catalog</span></div><div class="gallery-card-title">Anime Libraries</div><div class="gallery-card-text">Use large anime databases to move between films, series, staff, studios, seasons, and recommendations.</div><a class="gallery-link" href="https://myanimelist.net/anime.php" target="_blank">Browse Anime</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Movie Libraries From Early Cinema to Now</h3>
+<p class="gallery-subtext">These are the best starting points for broad browsing across cinema history, new releases, and deep catalog discovery.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Clapperboard.svg" alt="IMDb icon card"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">1900s to Now</span><span class="gallery-tag">Massive Catalog</span></div><div class="gallery-card-title">IMDb</div><div class="gallery-card-text">A huge searchable database for features, shorts, documentaries, cast, crews, release dates, and upcoming titles.</div><a class="gallery-link" href="https://www.imdb.com/search/title/?title_type=feature" target="_blank">Open IMDb</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Letterboxd_2018_icon_%28alternative%29.png" alt="Letterboxd icon card"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">History</span><span class="gallery-tag">Community Lists</span></div><div class="gallery-card-title">Letterboxd</div><div class="gallery-card-text">The best place to jump from a film into related lists by year, genre, decade, country, or vibe.</div><a class="gallery-link" href="https://letterboxd.com/films/decade/1900s/" target="_blank">Open Letterboxd</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Rotten_Tomatoes_logo.svg" alt="Rotten Tomatoes logo"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Curated</span><span class="gallery-tag">Accessible</span></div><div class="gallery-card-title">Rotten Tomatoes</div><div class="gallery-card-text">Good for broad curated entry points like best-of lists, genre guides, and recent-release roundups.</div><a class="gallery-link" href="https://editorial.rottentomatoes.com/guide/best-movies-of-all-time/" target="_blank">Open Guides</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/JustWatch_logo.svg" alt="JustWatch logo"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Streaming</span><span class="gallery-tag">Availability</span></div><div class="gallery-card-title">JustWatch</div><div class="gallery-card-text">Useful when she finds something and wants to know exactly where to stream or rent it right now.</div><a class="gallery-link" href="https://www.justwatch.com" target="_blank">Open JustWatch</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Anime Libraries and Seasonal Discovery</h3>
+<p class="gallery-subtext">Broader than one recommendation list: databases, seasonal charts, community ratings, and staff/studio trails.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Anime_icon.svg" alt="MyAnimeList themed icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Catalog</span><span class="gallery-tag">Seasonal</span></div><div class="gallery-card-title">MyAnimeList</div><div class="gallery-card-text">Track films and shows, browse seasonal anime, and move across recommendations and rankings.</div><a class="gallery-link" href="https://myanimelist.net/anime/season" target="_blank">Open MAL</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Anime_icon.svg" alt="AniList themed icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Modern UI</span><span class="gallery-tag">Discovery</span></div><div class="gallery-card-title">AniList</div><div class="gallery-card-text">A clean modern anime database with filters, personalized lists, and strong discovery tools.</div><a class="gallery-link" href="https://anilist.co/search/anime" target="_blank">Open AniList</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Crunchyroll_Logo.png" alt="Crunchyroll logo"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Streaming</span><span class="gallery-tag">Current</span></div><div class="gallery-card-title">Crunchyroll Browse</div><div class="gallery-card-text">Good for current and recent anime browsing, especially when she wants something she can watch immediately.</div><a class="gallery-link" href="https://www.crunchyroll.com/videos/anime" target="_blank">Open Crunchyroll</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Anime_icon.svg" alt="Anime films icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Anime Films</span><span class="gallery-tag">Feature Length</span></div><div class="gallery-card-title">Anime Movies on MAL</div><div class="gallery-card-text">A direct way to browse anime feature films instead of mixing them with series.</div><a class="gallery-link" href="https://myanimelist.net/anime/genre/19/Drama?type=movie" target="_blank">Browse Anime Movies</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Recent Releases and Upcoming Watchlists</h3>
+<p class="gallery-subtext">Track what's new, what's hot this year, and what is still coming soon.</p>
+<div class="gallery">
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Clapperboard.svg" alt="Upcoming movies icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Upcoming</span><span class="gallery-tag">Filterable</span></div><div class="gallery-card-title">IMDb Upcoming Movies</div><div class="gallery-card-text">A filterable release-date search for upcoming feature films.</div><a class="gallery-link" href="https://www.imdb.com/search/title/?count=0&release_date=2026-03-21,2026-06-20&title_type=feature" target="_blank">See Upcoming</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Letterboxd_2018_icon_%28alternative%29.png" alt="Recent films icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Recent</span><span class="gallery-tag">2026</span></div><div class="gallery-card-title">Letterboxd Year-So-Far</div><div class="gallery-card-text">A living snapshot of films the Letterboxd community is loving this year so far.</div><a class="gallery-link" href="https://letterboxd.com/official/list/march-2026-report-top-25-films-of-the-year/" target="_blank">See Recent</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Letterboxd_2018_icon_%28alternative%29.png" alt="Anticipated films icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Anticipated</span><span class="gallery-tag">Watchlist</span></div><div class="gallery-card-title">Anticipated Films</div><div class="gallery-card-text">A broad community watchlist for notable titles still expected this year.</div><a class="gallery-link" href="https://letterboxd.com/marinamay/list/my-most-anticipated-films-of-2026/" target="_blank">See Watchlist</a></div></div>
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Anime_icon.svg" alt="Upcoming anime icon"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Anime</span><span class="gallery-tag">Seasonal</span></div><div class="gallery-card-title">Upcoming Anime Seasons</div><div class="gallery-card-text">Season charts and browse tools for currently airing and upcoming anime releases.</div><a class="gallery-link" href="https://myanimelist.net/anime/season" target="_blank">See Anime Seasons</a></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="science" class="panel">
+<h2>Science & Research</h2>
+<p class="gallery-subtext">Now expanded into a deeper map of space science, big ideas, papers, simulations, visual explainers, and high-quality research discovery.</p>
+<div class="gallery-sections">
+<div class="gallery-block">
+<h3>Space and Planetary Science</h3>
+<div class="gallery">
+<div class="gallery-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Milky_Way_Galaxy.jpg" alt="Milky Way galaxy image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">NASA</span><span class="gallery-tag">Space</span></div><div class="gallery-card-title">NASA Science</div><div class="gallery-card-text">Mission explainers, discoveries, media, and deep-dive science resources across astronomy and planetary exploration.</div><a class="gallery-link" href="https://science.nasa.gov" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80" alt="ESA themed space image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">ESA</span><span class="gallery-tag">Missions</span></div><div class="gallery-card-title">ESA Science</div><div class="gallery-card-text">European mission pages, telescope science, planetary missions, and clean visual explainers.</div><a class="gallery-link" href="https://www.esa.int/Science_Exploration" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80" alt="Space telescope themed image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Astronomy</span><span class="gallery-tag">Images</span></div><div class="gallery-card-title">ESA/Webb & Hubble Imagery</div><div class="gallery-card-text">Perfect for beautiful, brain-catching space visuals that still connect to real science.</div><a class="gallery-link" href="https://esawebb.org/images/" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Solar system visualizer themed image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Interactive</span><span class="gallery-tag">Solar System</span></div><div class="gallery-card-title">NASA Eyes</div><div class="gallery-card-text">Interactive exploration software and visualizers for missions, planets, and spacecraft trajectories.</div><a class="gallery-link" href="https://eyes.nasa.gov" target="_blank">Open Resource</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Papers, Journals, and Advanced Reading</h3>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80" alt="Research papers desk image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Preprints</span><span class="gallery-tag">Open Access</span></div><div class="gallery-card-title">arXiv</div><div class="gallery-card-text">The fastest route into real research papers across physics, CS, math, astronomy, and more.</div><a class="gallery-link" href="https://arxiv.org" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=80" alt="Scholar search image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Academic Search</span><span class="gallery-tag">Citation Trail</span></div><div class="gallery-card-title">Google Scholar</div><div class="gallery-card-text">Useful for paper discovery, cited-by trails, and jumping between academic topics quickly.</div><a class="gallery-link" href="https://scholar.google.com" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Open journal styled image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Biology</span><span class="gallery-tag">Open Science</span></div><div class="gallery-card-title">PLOS</div><div class="gallery-card-text">Open-access journals for science reading when she wants credible but accessible papers.</div><a class="gallery-link" href="https://plos.org" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Data and computing style image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Data</span><span class="gallery-tag">Open Repository</span></div><div class="gallery-card-title">Zenodo</div><div class="gallery-card-text">A good place to find datasets, reports, software releases, and research outputs in one place.</div><a class="gallery-link" href="https://zenodo.org" target="_blank">Open Resource</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Readable Explainers and Smart Rabbit Holes</h3>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Readable science magazine image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Readable</span><span class="gallery-tag">High Quality</span></div><div class="gallery-card-title">Quanta Magazine</div><div class="gallery-card-text">Excellent science writing that stays accurate while still being genuinely engaging.</div><a class="gallery-link" href="https://www.quantamagazine.org" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="Longform article image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Longform</span><span class="gallery-tag">Big Ideas</span></div><div class="gallery-card-title">Wait But Why</div><div class="gallery-card-text">Long, funny, visual essays on AI, civilization, space, and future-thinking topics.</div><a class="gallery-link" href="https://waitbutwhy.com" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Educational video styled image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Video</span><span class="gallery-tag">Explainers</span></div><div class="gallery-card-title">Kurzgesagt</div><div class="gallery-card-text">Highly visual science explainers that are ideal for short attention spans without feeling shallow.</div><a class="gallery-link" href="https://www.youtube.com/@kurzgesagt" target="_blank">Open Resource</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1451187863213-d1bcbaae3fa3?auto=format&fit=crop&w=900&q=80" alt="Futurism themed image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Future</span><span class="gallery-tag">Tech</span></div><div class="gallery-card-title">Nautilus</div><div class="gallery-card-text">Thoughtful stories that connect science with culture, philosophy, and imagination.</div><a class="gallery-link" href="https://nautil.us" target="_blank">Open Resource</a></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="curiosity" class="panel">
+<h2>Curiosity Machine</h2>
+<p class="gallery-subtext">Turned into a full rabbit-hole engine with strange knowledge, future visions, maps, odd history, recommendation chains, and instant randomizers.</p>
+<div class="gallery-sections">
+<div class="gallery-block">
+<h3>Instant Curiosity Launch</h3>
+<div class="generator">
+<button onclick="randomCuriosity()">Show Something Interesting</button>
+<button onclick="randomDeepDive()">Open Deep Dive</button>
+<div class="output" id="curiosityResult"></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Rabbit-Hole Sites</h3>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Travel mystery styled image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Odd Places</span><span class="gallery-tag">Stories</span></div><div class="gallery-card-title">Atlas Obscura</div><div class="gallery-card-text">A perfect rabbit hole of strange places, rituals, objects, and hidden history.</div><a class="gallery-link" href="https://www.atlasobscura.com" target="_blank">Open Rabbit Hole</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Future themed city image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Timeline</span><span class="gallery-tag">Future</span></div><div class="gallery-card-title">Future Timeline</div><div class="gallery-card-text">Wild future predictions, speculative tech, and long-range civilization scenarios.</div><a class="gallery-link" href="https://futuretimeline.net" target="_blank">Open Rabbit Hole</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Long term thinking archive image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Big Ideas</span><span class="gallery-tag">Civilization</span></div><div class="gallery-card-title">Long Now</div><div class="gallery-card-text">Talks and essays about long-term thinking, civilization, time, and the future.</div><a class="gallery-link" href="https://longnow.org" target="_blank">Open Rabbit Hole</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Recommendation chain image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Discovery</span><span class="gallery-tag">Chains</span></div><div class="gallery-card-title">TasteDive</div><div class="gallery-card-text">Jump from one interest to adjacent books, music, movies, and shows with almost no friction.</div><a class="gallery-link" href="https://tastedive.com" target="_blank">Open Rabbit Hole</a></div></div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Maps, Space, and Strange Knowledge</h3>
+<div class="gallery">
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=900&q=80" alt="Map and stars styled image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Maps</span><span class="gallery-tag">Geography</span></div><div class="gallery-card-title">Google Arts & Culture</div><div class="gallery-card-text">Surprisingly rich for visual rabbit holes, exhibits, and unusual objects or places.</div><a class="gallery-link" href="https://artsandculture.google.com" target="_blank">Open Rabbit Hole</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=900&q=80" alt="Night sky exploration image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Sky</span><span class="gallery-tag">Interactive</span></div><div class="gallery-card-title">Sky Map</div><div class="gallery-card-text">A calm but stimulating way to jump into constellations, planets, and the visible sky.</div><a class="gallery-link" href="https://stellarium-web.org" target="_blank">Open Rabbit Hole</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="History and archives themed image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Archives</span><span class="gallery-tag">Odd History</span></div><div class="gallery-card-title">Public Domain Review</div><div class="gallery-card-text">Weird and beautiful historical curiosities, illustrations, maps, and forgotten texts.</div><a class="gallery-link" href="https://publicdomainreview.org" target="_blank">Open Rabbit Hole</a></div></div>
+<div class="gallery-card"><img src="https://images.unsplash.com/photo-1516849677043-ef67c9557e16?auto=format&fit=crop&w=900&q=80" alt="Knowledge graph themed image"><div class="gallery-card-body"><div class="gallery-tag-row"><span class="gallery-tag">Wikipedia</span><span class="gallery-tag">Infinite Scroll</span></div><div class="gallery-card-title">Wikipedia Random</div><div class="gallery-card-text">A classic infinite rabbit hole generator when the brain wants novelty immediately.</div><a class="gallery-link" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Open Rabbit Hole</a></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="gallery" class="panel">
+<h2>Galaxy Gallery</h2>
+<p class="gallery-subtext">A much bigger visual archive of worlds, moons, probes, current missions, and cancelled exploration dreams.</p>
+
+<div class="gallery-sections">
+
+<div class="gallery-block">
+<h3>Extraterrestrial Bodies</h3>
+<p class="gallery-subtext">Planets, moons, and icy worlds across the Solar System.</p>
+<div class="gallery">
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=900&q=80" alt="View of Mars in deep space">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Mars</span><span class="gallery-tag">Rocky World</span></div>
+<div class="gallery-card-title">Mars</div>
+<div class="gallery-card-text">The dusty red planet, home to rovers, orbiters, and decades of mission planning.</div>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=900&q=80" alt="Close view of the Moon surface">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Moon</span><span class="gallery-tag">Lunar Surface</span></div>
+<div class="gallery-card-title">Earth's Moon</div>
+<div class="gallery-card-text">Still central to new crewed exploration plans and future science infrastructure.</div>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=900&q=80" alt="Jupiter-like gas giant scene">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Jupiter System</span><span class="gallery-tag">Gas Giant</span></div>
+<div class="gallery-card-title">Jupiter & Its Moons</div>
+<div class="gallery-card-text">A giant system of storms, radiation, and ocean-world targets like Europa and Ganymede.</div>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=900&q=80" alt="Ringed planet representing Saturn">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Saturn</span><span class="gallery-tag">Rings</span></div>
+<div class="gallery-card-title">Saturn & Titan</div>
+<div class="gallery-card-text">A ringed giant with Titan, one of the most fascinating destinations in planetary science.</div>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Icy blue moon style image representing Europa">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Europa</span><span class="gallery-tag">Ocean World</span></div>
+<div class="gallery-card-title">Europa</div>
+<div class="gallery-card-text">An ice-covered moon with a hidden ocean, and one of the biggest astrobiology targets.</div>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=900&q=80" alt="Blue-green space body representing icy moons">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Ganymede</span><span class="gallery-tag">Icy Moon</span></div>
+<div class="gallery-card-title">Ganymede</div>
+<div class="gallery-card-text">The Solar System's largest moon and a major focus of Jupiter exploration missions.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Current and Active Missions</h3>
+<p class="gallery-subtext">Live missions and active spacecraft exploring worlds beyond Earth.</p>
+<div class="gallery">
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?auto=format&fit=crop&w=900&q=80" alt="Spacecraft and Jupiter themed image for Europa Clipper">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Current</span><span class="gallery-tag">NASA</span></div>
+<div class="gallery-card-title">Europa Clipper</div>
+<div class="gallery-card-text">A current NASA mission traveling to Jupiter to study Europa and its habitability potential.</div>
+<a class="gallery-link" href="https://science.nasa.gov/mission/europa-clipper/" target="_blank">Mission Page</a>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80" alt="Deep space spacecraft themed image for JUICE">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Current</span><span class="gallery-tag">ESA</span></div>
+<div class="gallery-card-title">JUICE</div>
+<div class="gallery-card-text">ESA's Jupiter Icy Moons Explorer is studying the Jupiter system and its ocean-bearing moons.</div>
+<a class="gallery-link" href="https://www.esa.int/Science_Exploration/Space_Science/Juice" target="_blank">Mission Page</a>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1447433819943-74a20887a81e?auto=format&fit=crop&w=900&q=80" alt="Spacecraft themed image for Psyche mission">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Current</span><span class="gallery-tag">Asteroid Mission</span></div>
+<div class="gallery-card-title">Psyche</div>
+<div class="gallery-card-text">A NASA mission heading to the metal-rich asteroid Psyche to study an unusual planetary building block.</div>
+<a class="gallery-link" href="https://science.nasa.gov/mission/psyche/" target="_blank">Mission Page</a>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=900&q=80" alt="Rotorcraft themed image for Dragonfly mission">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Current</span><span class="gallery-tag">Titan</span></div>
+<div class="gallery-card-title">Dragonfly</div>
+<div class="gallery-card-text">A rotorcraft mission planned to explore Saturn's moon Titan and sample multiple surface sites.</div>
+<a class="gallery-link" href="https://science.nasa.gov/mission/dragonfly/" target="_blank">Mission Page</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="gallery-block">
+<h3>Historic and Cancelled Mission Concepts</h3>
+<p class="gallery-subtext">Big ideas that shaped exploration, even when they never fully flew.</p>
+<div class="gallery">
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=900&q=80" alt="Rocket concept image for Constellation program">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Cancelled</span><span class="gallery-tag">NASA</span></div>
+<div class="gallery-card-title">Constellation Program</div>
+<div class="gallery-card-text">A cancelled human spaceflight program built around returning astronauts to the Moon with Ares and Orion-era concepts.</div>
+<a class="gallery-link" href="https://oig.nasa.gov/wp-content/uploads/2024/06/ig-10-011.pdf" target="_blank">Program Review</a>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1541873676-a18131494184?auto=format&fit=crop&w=900&q=80" alt="Heavy launch concept image for Ares vehicles">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Cancelled</span><span class="gallery-tag">Launch Vehicle</span></div>
+<div class="gallery-card-title">Ares Concepts</div>
+<div class="gallery-card-text">Launch systems tied to Constellation that remained part of a larger cancelled architecture for lunar return.</div>
+<a class="gallery-link" href="https://ntrs.nasa.gov/api/citations/20130012505/downloads/20130012505.pdf" target="_blank">Archived Overview</a>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80" alt="Jupiter concept mission image">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Cancelled Concept</span><span class="gallery-tag">Jupiter</span></div>
+<div class="gallery-card-title">JIMO Concept</div>
+<div class="gallery-card-text">The Jupiter Icy Moons Orbiter remained one of the most ambitious unrealized concepts for outer Solar System exploration.</div>
+<a class="gallery-link" href="https://solarsystem.nasa.gov/missions/jimo/in-depth/" target="_blank">Concept Archive</a>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=900&q=80" alt="Mission concept art for future exploration">
+<div class="gallery-card-body">
+<div class="gallery-tag-row"><span class="gallery-tag">Future Dream</span><span class="gallery-tag">Exploration</span></div>
+<div class="gallery-card-title">Unflown Moon & Mars Dreams</div>
+<div class="gallery-card-text">Many exploration architectures never launched, but they shaped the missions, vehicles, and goals that followed.</div>
+<a class="gallery-link" href="https://www.nasa.gov/history/constellation-program-overview/" target="_blank">Learn More</a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<footer>
+Built as a fun digital universe ✨
+</footer>
+
+<div class="pixelPet" id="pet">Explorer tip: try the curiosity machine 🚀</div>
+
+<script>
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'})
+}
+
+const movies=["The Godfather","Spirited Away","Mad Max: Fury Road","Parasite","The Matrix","Casablanca","Moonlight","The Lord of the Rings: The Fellowship of the Ring","Get Out","Before Sunrise","Alien","The Grand Budapest Hotel"]
+const anime=["Spirited Away","Akira","Ghost in the Shell","Your Name","Princess Mononoke","Perfect Blue","Howl's Moving Castle","Paprika"]
+const classics=["Metropolis","City Lights","Casablanca","Seven Samurai","Persona","2001: A Space Odyssey","The Godfather","Do the Right Thing"]
+const recentMovies=["Mickey 17","Black Bag","Presence","Companion","Flow","The Brutalist","Anora","I Saw the TV Glow"]
+const upcomingMovies=["The Odyssey","Avengers: Doomsday","The Bride!","Spider-Man: Brand New Day","Masters of the Universe","Dune: Part Three"]
+
+function randomMovie(){
+const pick=movies[Math.floor(Math.random()*movies.length)]
+document.getElementById('movieResult').innerText="Movie pick: "+pick
+}
+
+function randomAnime(){
+const pick=anime[Math.floor(Math.random()*anime.length)]
+document.getElementById('movieResult').innerText="Anime pick: "+pick
+}
+
+function randomClassic(){
+const pick=classics[Math.floor(Math.random()*classics.length)]
+document.getElementById('movieResult').innerText="Classic cinema pick: "+pick
+}
+
+function randomRecent(){
+const pick=recentMovies[Math.floor(Math.random()*recentMovies.length)]
+document.getElementById('movieResult').innerText="Recent release pick: "+pick
+}
+
+function randomUpcoming(){
+const pick=upcomingMovies[Math.floor(Math.random()*upcomingMovies.length)]
+document.getElementById('movieResult').innerText="Upcoming watchlist pick: "+pick
+}
+
+const deepDives=[
+"https://publicdomainreview.org",
+"https://artsandculture.google.com",
+"https://stellarium-web.org",
+"https://en.wikipedia.org/wiki/Special:Random",
+"https://longnow.org"
+]
+
+function randomDeepDive(){
+const pick=deepDives[Math.floor(Math.random()*deepDives.length)]
+document.getElementById('curiosityResult').innerHTML='<a style="color:white" href="'+pick+'" target="_blank">Open deep dive</a>'
+}
+
+const tips=[
+"Try a random movie pick",
+"Browse a classic cinema list",
+"Open an anime library",
+"See what's coming soon",
+"Explore science discoveries",
+"Open a curiosity rabbit hole"
+]
+
+setInterval(()=>{
+const tip=tips[Math.floor(Math.random()*tips.length)]
+document.getElementById('pet').innerText=tip
+},7000)
+
+window.addEventListener('mousemove',(e)=>{
+const x=(e.clientX/window.innerWidth - 0.5) * 24
+const y=(e.clientY/window.innerHeight - 0.5) * 24
+document.body.style.setProperty('--mx', `${x}px`)
+document.body.style.setProperty('--my', `${y}px`)
+})
+
+</script>
+
+</body>
+</html>
